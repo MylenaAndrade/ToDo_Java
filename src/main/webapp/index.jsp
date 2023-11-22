@@ -1,6 +1,3 @@
-<%@ page import = "java.sql.*"%>
-<%@ page import = "model.ConexaoDB"%>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -21,7 +18,7 @@
       crossorigin="anonymous"
     ></script>
     
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="style.css">
   </head>
   <body>
 
@@ -35,8 +32,8 @@
         <label for="password" class="form-label">Senha</label>
         <input type="password" id="password"  class="form-control"/>
       </fieldset>
-      <button class="btn btn-primary">Entrar</button>
-      <span>Não possui uma conta? <a href="sign-up.html">Cadastre-se</a></span>
+      <a class="btn btn-primary" href="todos.jsp">Entrar</a>
+      <span>Não possui uma conta? <a href="sign-up.jsp">Cadastre-se</a></span>
     </form>
   </body>
 </html>

@@ -2,32 +2,20 @@ package model;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.SQLException;
 
 public class ConexaoDB{
-	
-	private Connection con;
-	
-	public void iniciaDb(){
+
+	public static Connection getConnection() throws SQLException{
 			try {
 				String database = "jdbc:mysql://localhost/toDo";
 				String usuario = "root";
-				String senha = "root";
-				Class.forName ("com.mysql.jdbc.Driver");
-				con = (Connection) DriverManager.getConnection( database, usuario, senha);
-			}catch (Exception e) { 
-				e.printStackTrace();
+				String senha = "";
+				Class.forName ("com.mysql.cj.jdbc.Driver");
+				return DriverManager.getConnection( database, usuario, senha);
+			}catch (ClassNotFoundException e) { 
+				throw new SQLException(e.getException());
 			}
 	}
 	
-	public void techalid(){
-			try {
-				con.close();
-			} catch (Exception e ) {
-				e.printStackTrace();
-			}
-	}
-	
-	public Connection getConexao(){
-			return con;
-	}
 }

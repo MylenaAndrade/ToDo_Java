@@ -20,18 +20,18 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <form class="gap-2 column center">
+     <form class="gap-2 column center" action="cadastro.jsp" method="post">
       <h1>Cadastro</h1>
       <fieldset>
         <label for="email" class="form-label">Email</label>
-        <input type="text" id="email"  class="form-control"/>
+        <input type="text" id="email"  class="form-control" name="email"/>
       </fieldset>
       <fieldset>
         <label for="password" class="form-label">Senha</label>
-        <input type="password" id="password"  class="form-control"/>
+        <input type="password" id="password"  class="form-control" name="senha"/>
       </fieldset>
       <button class="btn btn-primary">Criar conta</button>
-      <span>Já possui uma conta? <a href="index.html">Entrar</a></span>
+      <span>Já possui uma conta? <a href="index.jsp">Entrar</a></span>
     </form>
   </body>
 </html>
