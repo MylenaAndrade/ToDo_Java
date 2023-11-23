@@ -1,8 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import = "java.sql.*"%>
-<%@ page language="java" import = "model.ConexaoDB"%>
-
-
+pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
+"model.ConexaoDB"%>
 
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -38,13 +36,13 @@
           <label for="taskPriority">Prioridade:</label>
           <select class="form-control" id="taskPriority" name="taskPriority">
             <option value="baixa">Baixa</option>
-            <option value="mÃ©dia">MÃ©dia</option>
+            <option value="mÃ©dia">Media</option>
             <option value="alta">Alta</option>
           </select>
         </div>
 
         <div class="form-group">
-          <label>DiÃ¡rio</label><br />
+          <label>Diario</label><br />
           <div class="form-check form-check-inline">
             <input
               type="checkbox"
@@ -62,41 +60,31 @@
 
       <h2 class="mt-4">Lista de Tarefas</h2>
       <ul id="taskList" class="list-group">
-      <li class="list-group-item">Tarefa 1</li>
-      <%
-		Connection conn = null;
-		Statement stmt = null;
-		ResultSet rs = null;
-		
-		try {
-			Connection con = ConexaoDB.getConnection();
-		
-		    stmt = con.createStatement();
-		    String sql = "SELECT * FROM tarefa";
-		    rs = stmt.executeQuery(sql);
-		
-		    out.println("<table border='1'>");
-		    out.println("<tr><th>ID</th><th>Nome</th><th>Idade</th><th>Diaria</th></tr>");
-		    while (rs.next()) {
-		        out.println("<tr><td>" + rs.getInt("id") + "</td><td>" + rs.getString("nome") + "</td><td>" + rs.getString("prioridade") + "</td><td>" + rs.getBoolean("diaria") + "</td></tr>");
-		    }
-		    out.println("</table>");
-		
-		} catch (Exception e) {
-		    e.printStackTrace();
-		} finally {
-		    try {
-		        if (rs != null) rs.close();
-		        if (stmt != null) stmt.close();
-		        if (conn != null) conn.close();
-		    } catch (SQLException e) {
-		        e.printStackTrace();
-		    }
-		}
-
-	
-	%>
-      
+        <% Connection conn = null; Statement stmt = null; ResultSet rs = null;
+        try { Connection con = ConexaoDB.getConnection(); stmt =
+        con.createStatement(); String sql = "SELECT * FROM tarefa"; rs =
+        stmt.executeQuery(sql); out.println("
+        <table class="table">
+          "); out.println("
+          <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Idade</th>
+            <th>Diaria</th>
+          </tr>
+          "); while (rs.next()) { out.println("
+          <tr>
+            <td>" + rs.getInt("id") + "</td>
+            <td>" + rs.getString("nome") + "</td>
+            <td>" + rs.getString("prioridade") + "</td>
+            <td>" + rs.getBoolean("diaria") ? "Sim" : "Não" + "</td>
+          </tr>
+          "); } out.println("
+        </table>
+        "); } catch (Exception e) { e.printStackTrace(); } finally { try { if
+        (rs != null) rs.close(); if (stmt != null) stmt.close(); if (conn !=
+        null) conn.close(); } catch (SQLException e) { e.printStackTrace(); } }
+        %>
       </ul>
     </div>
   </body>
