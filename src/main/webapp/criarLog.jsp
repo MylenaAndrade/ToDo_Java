@@ -3,18 +3,18 @@
 <%@ page language="java" import = "model.ConexaoDB"%>
 <%@ page language="java" import = "java.io.*"%>
 <%
-    Connection conn = null;
-    Statement stmt = null;
-    ResultSet rs = null;
+	Connection conn = null;
+	Statement stmt = null;
+	ResultSet rs = null;
+	
+	try {
+	    conn = ConexaoDB.getConnection();
+	    stmt = conn.createStatement();
+	    String sql = "SELECT * FROM tarefa";
+	    rs = stmt.executeQuery(sql);
 
-    try {
 
-        stmt = conn.createStatement();
-        String sql = "SELECT * FROM todos";
-        rs = stmt.executeQuery(sql);
-
-        File arquivoLog = new File("todos_log.txt");
-        FileWriter fw = new FileWriter(arquivoLog, true); 
+        FileWriter fw = new FileWriter("todos_log.txt", true); 
 
         while (rs.next()) {
             int id = rs.getInt("id");

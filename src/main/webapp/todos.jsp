@@ -20,7 +20,7 @@ pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
     <div class="container mt-4">
       <h1>Minha Lista de Tarefas</h1>
       <form action="criarLog.jsp">
-        <button class="btn">Gerar LOG</button>
+        <button class="btn btn-secondary my-3">Gerar LOG</button>
       </form>
 
       <form id="todoForm" action="tarefa.jsp" method="post">
