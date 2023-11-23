@@ -38,7 +38,7 @@
         </div>
 
         <div class="form-group">
-          <label>Etiquetas:</label><br />
+          <label>Diário</label><br />
           <div class="form-check form-check-inline">
             <input
               type="checkbox"
@@ -47,27 +47,7 @@
               name="label1"
               value="design"
             />
-            <label class="form-check-label" for="label1">Design</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="label2"
-              name="label2"
-              value="desenvolvimento"
-            />
-            <label class="form-check-label" for="label2">Desenvolvimento</label>
-          </div>
-          <div class="form-check form-check-inline">
-            <input
-              type="checkbox"
-              class="form-check-input"
-              id="label3"
-              name="label3"
-              value="teste"
-            />
-            <label class="form-check-label" for="label3">Teste</label>
+            <label class="form-check-label" for="label1">Sim</label>
           </div>
         </div>
 
