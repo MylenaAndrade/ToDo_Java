@@ -36,6 +36,7 @@ pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
   <body>
     <div class="container mt-4">
       <h1>Minha Lista de Tarefas</h1>
+      <button class="btn" type="button" onclick="criarLog">Gerar LOG</button>
 
       <form id="todoForm" action="tarefa.jsp" method="post">
         <div class="form-group">
@@ -73,7 +74,6 @@ pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
         </div>
 
         <button type="submit" class="btn btn-primary">Adicionar Tarefa</button>
-        <button class="btn" onclick="criarLog">Gerar LOG</button>
       </form>
 
       <h2 class="mt-4">Lista de Tarefas</h2>
