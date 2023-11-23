@@ -60,31 +60,43 @@ pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
 
       <h2 class="mt-4">Lista de Tarefas</h2>
       <ul id="taskList" class="list-group">
-        <% Connection conn = null; Statement stmt = null; ResultSet rs = null;
-        try { Connection con = ConexaoDB.getConnection(); stmt =
-        con.createStatement(); String sql = "SELECT * FROM tarefa"; rs =
-        stmt.executeQuery(sql); out.println("
-        <table class="table">
-          "); out.println("
-          <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Idade</th>
-            <th>Diaria</th>
-          </tr>
-          "); while (rs.next()) { out.println("
-          <tr>
-            <td>" + rs.getInt("id") + "</td>
-            <td>" + rs.getString("nome") + "</td>
-            <td>" + rs.getString("prioridade") + "</td>
-            <td>" + rs.getBoolean("diaria") ? "Sim" : "Não" + "</td>
-          </tr>
-          "); } out.println("
-        </table>
-        "); } catch (Exception e) { e.printStackTrace(); } finally { try { if
-        (rs != null) rs.close(); if (stmt != null) stmt.close(); if (conn !=
-        null) conn.close(); } catch (SQLException e) { e.printStackTrace(); } }
+ 	 <%
+            Connection conn = null;
+            Statement stmt = null;
+            ResultSet rs = null;
+            try {
+                conn = ConexaoDB.getConnection();
+                stmt = conn.createStatement();
+                String sql = "SELECT * FROM tarefa";
+                rs = stmt.executeQuery(sql);
         %>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>Nome</th>
+                <th>Prioridade</th>
+                <th>Diaria</th>
+            </tr>
+            <% while (rs.next()) { %>
+            <tr>
+                <td><%= rs.getInt("id") %></td>
+                <td><%= rs.getString("nome") %></td>
+                <td><%= rs.getString("prioridade") %></td>
+                <td><%= rs.getBoolean("diaria") ? "Sim" : "Não" %></td>
+            </tr>
+            <% } %>
+        </table>
+        <% } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+                if (conn != null) conn.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        } %>
       </ul>
     </div>
   </body>

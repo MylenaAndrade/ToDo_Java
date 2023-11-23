@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html = "en">
+	<head>
+	    <title>Formulário para Log</title>
+	    <script>
+	        function criarLog() {
+	            // Capturar os dados do formulário
+	            var nome = document.getElementById("nome").value;
+	            var idade = document.getElementById("idade").value;
+	
+	            // Criar um texto para o log
+	            var logText = "Nome: " + nome + ", Idade: " + idade + "\n";
+	
+	            // Requisição AJAX para enviar os dados para o servidor e criar o arquivo de log
+	            var xhr = new XMLHttpRequest();
+	            xhr.open("POST", "criarLog.jsp", true);
+	            xhr.setRequestHeader("Content-type", "text/plain");
+	            xhr.send(logText);
+	
+	            alert("Arquivo de log criado com sucesso!");
+	        }
+	    </script>
+	</head>
+	<body>
+	    <h1>Formulário para Log</h1>
+	    <form>
+	        <label for="nome">Nome:</label>
+	        <input type="text" id="nome" name="nome"><br><br>
+	        
+	        <label for="idade">Idade:</label>
+	        <input type="text" id="idade" name="idade"><br><br>
+	        
+	        <button type="button" onclick="criarLog()">Criar Log</button>
+	    </form>
+	</body>
+</html>
