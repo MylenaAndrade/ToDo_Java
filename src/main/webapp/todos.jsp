@@ -15,28 +15,13 @@ pageEncoding="UTF-8" import = "java.sql.*"%> <%@ page language="java" import =
       defer
       src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
     ></script>
-    <script>
-      function criarLog() {
-          var xhr = new XMLHttpRequest();
-          xhr.open("POST", "criarLog.jsp", true);
-          xhr.setRequestHeader("Content-type", "text/plain");
-          xhr.onreadystatechange = function() {
-              if (xhr.readyState === XMLHttpRequest.DONE) {
-                  if (xhr.status === 200) {
-                      alert("Arquivo de log criado com sucesso!");
-                  } else {
-                      alert("Erro ao criar arquivo de log.");
-                  }
-              }
-          };
-          xhr.send("Criar arquivo de log com os dados dos usuários...");
-      }
-</script>
   </head>
   <body>
     <div class="container mt-4">
       <h1>Minha Lista de Tarefas</h1>
-      <button class="btn" type="button" onclick="criarLog">Gerar LOG</button>
+      <form action="criarLog.jsp">
+        <button class="btn">Gerar LOG</button>
+      </form>
 
       <form id="todoForm" action="tarefa.jsp" method="post">
         <div class="form-group">
