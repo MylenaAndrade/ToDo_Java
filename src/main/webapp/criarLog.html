@@ -4,14 +4,11 @@
 	    <title>Formulário para Log</title>
 	    <script>
 	        function criarLog() {
-	            // Capturar os dados do formulário
 	            var nome = document.getElementById("nome").value;
 	            var idade = document.getElementById("idade").value;
 	
-	            // Criar um texto para o log
 	            var logText = "Nome: " + nome + ", Idade: " + idade + "\n";
 	
-	            // Requisição AJAX para enviar os dados para o servidor e criar o arquivo de log
 	            var xhr = new XMLHttpRequest();
 	            xhr.open("POST", "criarLog.jsp", true);
 	            xhr.setRequestHeader("Content-type", "text/plain");
